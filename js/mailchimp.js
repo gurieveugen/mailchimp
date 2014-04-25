@@ -12,6 +12,17 @@
 			beforeSubmit: mc_beforeForm,
 			success: mc_success
 		});
+
+		$('#mc_signup_form2').submit(function(e){
+			$.ajax({
+				url: mailchimpSF.ajax_url, 
+				type: 'POST', 
+				dataType: 'text',
+				beforeSubmit: mc_beforeForm,
+				success: mc_success
+			});
+			e.preventDefault();
+		});
 	});
 	
 	function mc_beforeForm(){
@@ -34,5 +45,6 @@
 			$('#mc_submit_type').val('js');
 		}
 		$.scrollTo('#mc_signup', {offset: {top: -28}});
+		location.href = "/thankyou";
 	}
 })(jQuery);
